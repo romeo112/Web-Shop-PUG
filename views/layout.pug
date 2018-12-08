@@ -1,0 +1,46 @@
+doctype html
+html
+  head
+    title knowledgebase
+    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet' href='/css/style.css')
+  body
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/js/main.js')
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+      a.navbar-brand(href='/') Prodavnica
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item
+            a.nav-link(href='/')
+              | Home 
+              span.sr-only (current)
+          if(user)
+            li.nav-item
+              a.nav-link(href='/proizvodi/add')  Dodaj proizvod 
+          li.nav-item
+            a.nav-link(href='/proizvodi/informacije')  O nama
+        ul.navbar-nav.navbar-right
+          if user
+            li 
+              a(href='/users/logout') Logout
+          else
+            li.nav-item
+              a.nav-link(href='/users/register') Register
+            li.nav-item
+              a.nav-link(href='/users/login') Login
+    .container
+      !=messages('message',locals)
+      if errors
+        each error,i in errors
+          div(class='alert alert-danger') #{error.msg}
+      block content
+      br
+      footer.page-footer.font-large.blue
+        div.footer-copyright.text-center.py-3   
+          p
+            span.copy Copyright &copy;
+            |   Emir Karaman 2018

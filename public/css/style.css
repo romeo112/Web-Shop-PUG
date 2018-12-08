@@ -1,0 +1,62 @@
+.slika {
+  margin-right: 12px;
+  width: 70px;
+  height: 70px;
+}
+h5 {
+  font-size: 16px;
+}
+.edit {
+  margin-right: 6px;
+}
+.korpa {
+  width: 25%;
+  margin-left: 6px;
+}
+
+.grupa1 {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.grupa2 {
+  height: 100%;
+  float: right;
+  width: 50%;
+  text-align: center;
+}
+footer {
+  text-align: center;
+  font-size: 25px;
+  color: brown;
+  clear: both;
+  font-weight: bolder;
+}
+.copy {
+  color: blue;
+}
+.basket {
+  text-align: center;
+}
+.buy {
+  width: 180px;
+  height: 50px;
+  text-align: center;
+  margin-bottom: 260px;
+  font-size: 20px;
+}
+.price {
+  font-size: 25px;
+  color: green;
+}
+.alert-error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-success_msg {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}

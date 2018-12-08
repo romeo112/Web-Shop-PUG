@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  div
+    ul.list-group.grupa1
+      h2 Lista dostupnih proizvoda:
+      each proizvod, i in proizvodi
+        li.list-group-item
+          h5 #{proizvod.name}, cijena je: #{proizvod.price} BAM, na stanju: #{proizvod.kolicina} komada.
+          img.slika(src=proizvod.url)
+          if(user)
+            a.btn.btn-primary.edit(href="/proizvodi/edit/"+proizvod._id)  Edit
+            a.btn.btn-danger.delete-proizvod(href='',data-id=proizvod._id)  Delete
+            a.btn.btn-primary.korpa(href="/korpa/add/"+proizvod._id, id="dodaj"+proizvod._id)  Dodaj u korpu
+            if(proizvod.kolicina<1)
+              script.
+                document.getElementById('dodaj#{proizvod._id}').style.visibility = 'hidden';
+            if(proizvod.kolicina>0)
+              script.
+                document.getElementById('dodaj#{proizvod._id}').style.visibility = 'visible';
+    ul.list-group.grupa2
+      h2 Proizvodi u Korpi (ukupno: #{korpa.length}):
+      each item, i in korpa
+        li.list-group-item
+          h5 #{item.itemName}, cijena je: #{item.itemPrice} BAM
+          img.slika(src=item.itemUrl)
+          if(user)
+            a.btn.btn-primary.delete-item(href='',data-id=item._id)  Remove
+      if(user)      
+        a.btn.btn-danger.remove(href="/korpa/removeAll", id="removeAll")  Remove all products from the basket
+        a.btn.btn-primary.kupi(href="/korpa/kupi", id="kupi")  Buy all products from the basket
+        if(korpa.length<1) 
+          script.
+            document.getElementById('removeAll').style.visibility = 'hidden';
+            document.getElementById('kupi').style.visibility = 'hidden';
+        if(korpa.length>0) 
+          script.
+            document.getElementById('removeAll').style.visibility = 'visible';
+            document.getElementById('kupi').style.visibility = 'visible';
+      
+        

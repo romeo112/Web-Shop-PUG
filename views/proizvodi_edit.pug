@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Unesi drugacije podatke za update!
+  form(method='post',action='/proizvodi/edit/'+proizvod._id)
+    #form-group
+      label Name:
+      input.form-control(name='name',type='text',value=proizvod.name)
+    #form-group
+      label Url:
+      input.form-control(name='url',type='text',value=proizvod.url)
+    #form-group
+      label Price:
+      input.form-control(name='price',type='text',value=proizvod.price)
+    #form-group
+      label Kolicina:
+      input.form-control(name='kolicina',type='text',value=proizvod.kolicina)
+    br
+    input.btn.btn-primary(type='submit',value='submit')

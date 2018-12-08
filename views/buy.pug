@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .basket
+    br
+    h3 
+      | Hvala vam na kupovini nasih proizvoda, ukupna cijena je: 
+      span.price #{price} BAM
+    hr
+    a.btn.btn-primary.buy(href="/korpa/removeAll")  Dovrsi kupovinu
